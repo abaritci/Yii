@@ -1,7 +1,7 @@
 <?php
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Modulo de inicio de sesión personalizado
+ * @author: Isabel Palomar Bernardino.
  */
 class ExampleForm  extends CFormModel{
 
@@ -14,11 +14,11 @@ class ExampleForm  extends CFormModel{
     public function rules(){
 
 		return array(
-			// username and password are required
+			// Username y contrasena son campos obligatorios
 			array('username, contrasena', 'required'),
-			// rememberMe needs to be a boolean
+			// recordar contraseña es de tipo boleano
 			array('recuerdame', 'boolean'),
-			// password needs to be authenticated
+			// la contraseña es necesaria para la autentificacion del usuario
 			array('contrasena', 'authenticate'),
 		);
     }
@@ -32,8 +32,8 @@ class ExampleForm  extends CFormModel{
 
 
        /**
-	 * Authenticates the password.
-	 * This is the 'authenticate' validator as declared in rules().
+	 * Authentifica la contraseña
+	 * Es un valor que fue declarado en las reglas citadas anteriormente (metodo rules())
 	 */
 	public function authenticate($attribute,$params)
 	{

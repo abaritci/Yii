@@ -50,34 +50,16 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		*/
-//		'db'=>array(
-  //      'class'=>'CDbConnection',
-    //                    'connectionString'=>'oci:dbname=localhost:1521/XE;charset=UTF8',
-      //                  'username'=>'system',
-        //                'password'=>'root',
-
-
-//		),
-//
 	 'db'=>array(
               'class'=>'application.extensions.PHPPDO.CPdoDbConnection',
               'pdoClass' => 'PHPPDO',
             'connectionString'=>'oci:dbname=127.0.0.1/xe',
             'username'=>'system',
-            'password'=>'root'
+            'password'=>'root',
+             'schemaCachingDuration'=>3600
 ),
             
 
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
-			'charset' => 'utf8',
-		),
-		*/
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',

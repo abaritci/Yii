@@ -15,7 +15,7 @@ class ExampleForm  extends CFormModel{
 
 		return array(
 			// Username y contrasena son campos obligatorios
-			array('username, contrasena', 'required'),
+			array('username, contrasena', 'required','message'=>'{attribute} es un campo obligatorio.'),
 			// recordar contraseña es de tipo boleano
 			array('recuerdame', 'boolean'),
 			// la contraseña es necesaria para la autentificacion del usuario

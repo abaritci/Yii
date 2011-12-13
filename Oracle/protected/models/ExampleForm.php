@@ -7,7 +7,7 @@ class ExampleForm  extends CFormModel{
 
     public $username;
     public $contrasena;
-    public $recuerdame=true;
+    public $recuerdame;
     private $_identity;
 
     //{}

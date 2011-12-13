@@ -30,22 +30,12 @@ return array(
 		
 	),
 
-    
-'language'=>'de',
-
-
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-                'coreMessages'=>array(
-                'basePath'=>null,
-                ),
-
-            
-
 
 		// uncomment the following to enable URLs in path-format
 		
@@ -60,17 +50,15 @@ return array(
                     'caseSensitive'=>false,
                      
 		),
-          
-		
-	 'db'=>array(
-              'class'=>'application.extensions.PHPPDO.CPdoDbConnection',
-              'pdoClass' => 'PHPPDO',
-            'connectionString'=>'oci:dbname=127.0.0.1/xe',
-            'username'=>'system',
-            'password'=>'root',
-             'schemaCachingDuration'=>3600
-),
-            
+
+                 'db'=>array(
+                      'class'=>'application.extensions.PHPPDO.CPdoDbConnection',
+                      'pdoClass' => 'PHPPDO',
+                    'connectionString'=>'oci:dbname=127.0.0.1/xe',
+                    'username'=>'system',
+                    'password'=>'root',
+                     'schemaCachingDuration'=>3600
+                    ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

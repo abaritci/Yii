@@ -3,10 +3,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
+        <!-- application icon-->
+        <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ccx.ico" type="image/x-icon" />
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
+      
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
@@ -25,18 +27,30 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-                                array('label'=>'Usuarios Oracle', 'url'=>array('/user/'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-                                array('label'=>'Inicio de Sesión', 'url'=>array('/site/example'), 'visible'=>Yii::app()->user->isGuest),
-			//	array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
+	<div id="mainMbMenu">
+		<?php
+                    $this->widget('application.extensions.mbmenu.MbMenu',array(
+                    'items'=>array(
+                        array('label'=>'Inicio', 'url'=>array('/site/index')),
+                        array('label'=>'Usuarios Oracle', 'url'=>array('/user/'), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+                        array('label'=>'Contact', 'url'=>array('/site/contact')),
+                        array('label'=>'Test DropDown Menu',
+                          'items'=>array(
+                            array('label'=>'Subtitulo 1', 'url'=>array('/site/test','view'=>'sub1')),
+                            array('label'=>'Subtitulo 2',
+                              'items'=>array(
+                                array('label'=>'Sub sub 1', 'url'=>array('/site/test','view'=>'subsub1')),
+                                array('label'=>'Sub sub 2', 'url'=>array('/site/test','view'=>'subsub2')),
+                              ),
+                            ),
+                          ),
+                        ),
+                       array('label'=>'Inicio de Sesión', 'url'=>array('/site/example'), 'visible'=>Yii::app()->user->isGuest),
+                       array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                    ),
+            ));
+                ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(

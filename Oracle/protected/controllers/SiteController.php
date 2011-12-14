@@ -32,6 +32,7 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -121,15 +122,15 @@ class SiteController extends Controller
 		}
 	
 	// display the login form
-		$this->render('example',array('model'=>$model));
-
-                
-		
-
-
-		
+		$this->render('example',array('model'=>$model));		
 	}
 
+
+        public function actionTest()
+	{
+		// renders the view file 'protected/views/site/test.php'
+		$this->render('test');
+	}
 
 
 

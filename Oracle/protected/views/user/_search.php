@@ -16,17 +16,12 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'PASSWORD'); ?>
-		<?php echo $form->passwordField($model,'PASSWORD',array('size'=>60,'maxlength'=>128)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'EMAIL'); ?>
 		<?php echo $form->textField($model,'EMAIL',array('size'=>60,'maxlength'=>128)); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

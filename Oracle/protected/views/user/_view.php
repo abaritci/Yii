@@ -8,10 +8,6 @@
 	<?php echo CHtml::encode($data->USERNAME); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('PASSWORD')); ?>:</b>
-	<?php echo CHtml::encode($data->PASSWORD); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('EMAIL')); ?>:</b>
 	<?php echo CHtml::encode($data->EMAIL); ?>
 	<br />

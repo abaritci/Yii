@@ -32,9 +32,9 @@
                     $this->widget('application.extensions.mbmenu.MbMenu',array(
                     'items'=>array(
                         array('label'=>'Inicio', 'url'=>array('/site/index')),
-                        array('label'=>'Usuarios Oracle', 'url'=>array('/user/'), 'visible'=>!Yii::app()->user->isGuest),
-                        array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                        array('label'=>'Contact', 'url'=>array('/site/contact')),
+                        array('label'=>'Usuarios', 'url'=>array('/user/'), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'Acerca de', 'url'=>array('/site/page', 'view'=>'about')),
+                        array('label'=>'Contacto', 'url'=>array('/site/contact')),
                         array('label'=>'Test DropDown Menu',
                           'items'=>array(
                             array('label'=>'Subtitulo 1', 'url'=>array('/site/test','view'=>'sub1')),
@@ -47,7 +47,7 @@
                           ),
                         ),
                        array('label'=>'Inicio de Sesión', 'url'=>array('/site/example'), 'visible'=>Yii::app()->user->isGuest),
-                       array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                       array('label'=>'Cerrar Sesión ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
                     ),
             ));
                 ?>

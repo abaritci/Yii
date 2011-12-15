@@ -40,8 +40,8 @@ class User extends CActiveRecord
 			array('ID', 'numerical'),
 			array('USERNAME, PASSWORD', 'length', 'max'=>128),
                         array('USERNAME', 'unique', 'attributeName'=>'USERNAME'),
-
                         array('EMAIL', 'email'),
+                        array('EMAIL', 'unique', 'attributeName'=>'EMAIL'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('ID, USERNAME, PASSWORD, EMAIL', 'safe', 'on'=>'search'),
@@ -71,7 +71,6 @@ class User extends CActiveRecord
 			'EMAIL' => 'Email',
 		);
 	}
-
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.

@@ -44,9 +44,31 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'ID',
 		'USERNAME',
-		'EMAIL',
-		array(
-			'class'=>'CButtonColumn',
-		),
+                'EMAIL',
+                // array(
+                // 'header'=>'Fecha Vigencia',
+                // 'name'=>'fecha_vigencia',
+                // 'value' => '$data->EMAIL' ,
+               // 'htmlOptions'=>array('width'=>'180px'),
+               // 'class'=>'SYDateColumn',
+                 //),
+
+		//array(
+		//	'class'=>'CButtonColumn',
+		//),
+            
+                array(
+                    'class'=>'CButtonColumn',
+                    'template' => '{view} {update} {delete} {pdf}',
+                    'buttons'=>array(
+                    'pdf' => array(
+                    'label'=>'Generar PDF',
+                    'url'=>"CHtml::normalizeUrl(array('pdf', 'id'=>\$data->ID))",
+                    'imageUrl'=>Yii::app()->request->baseUrl.'/images/pdf_icon.gif',
+                    'options' => array('class'=>'pdf'),
+                    ),
+                    ),
+                    ),
+
 	),
 )); ?>

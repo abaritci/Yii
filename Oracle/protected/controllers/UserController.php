@@ -31,11 +31,11 @@ class UserController extends Controller
                             'users'=>array('?'),
                           ),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','pdf'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','pdf'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -179,4 +179,14 @@ class UserController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+        public function actionPdf($id) //funcion que nos permitirar exportar la tabla usuario a pdf
+        {
+        $this->render('pdf',array(
+        'model'=>$this->loadModel($id),
+        ));
+    }
+
+
+
 }

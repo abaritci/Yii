@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'Usuarios'=>array('index'),
 	$model->ID,
 );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'Update User', 'url'=>array('update', 'id'=>$model->ID)),
-	array('label'=>'Delete User', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
-    	array('label'=>'Manage User', 'url'=>array('admin')),
+	array('label'=>'Listar Usuarios', 'url'=>array('index')),
+	array('label'=>'Crear Usuarios', 'url'=>array('create')),
+	array('label'=>'Editar Usuario', 'url'=>array('update', 'id'=>$model->ID)),
+	array('label'=>'Borrar Usuario', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
+    	array('label'=>'Administrar Usuarios', 'url'=>array('admin')),
         array('label'=>'Crear PDF', 'url'=>array('pdf','id'=>$model->ID)),
 
 );

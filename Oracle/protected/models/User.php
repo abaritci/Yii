@@ -91,6 +91,15 @@ class User extends CActiveRecord
 		$criteria->compare('PASSWORD',$this->PASSWORD,true);
 		$criteria->compare('EMAIL',$this->EMAIL,true);
 
+                  //Almacena los datos de la busqueda en una variable de sesión
+                  //Se utiliza en la exportación de los datos a pdf.
+                $_SESSION['datos_filtrados'] = new CActiveDataProvider($this, array(
+                'criteria'=>$criteria,
+                'sort'=>$sort,
+                'pagination'=>false,
+                ));
+
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
                         'sort'=>$sort,

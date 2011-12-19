@@ -37,13 +37,13 @@
                         array('label'=>'Contacto', 'url'=>array('/site/contact')),
                         array('label'=>'Test DropDown Menu',
                           'items'=>array(
-                            array('label'=>'Subtitulo 1', 'url'=>array('/site/test','view'=>'sub1')),
-                            array('label'=>'Subtitulo 2',
-                              'items'=>array(
-                                array('label'=>'Sub sub 1', 'url'=>array('/site/test','view'=>'subsub1')),
-                                array('label'=>'Sub sub 2', 'url'=>array('/site/test','view'=>'subsub2')),
-                              ),
-                            ),
+                            array('label'=>'Ejemplo','url'=>array('site/test')),
+                            array('label'=>'Multiples Modelos ',
+                                 'items'=>array(
+                                      array('label'=>'Personal','url'=>array('personal/admin')),
+                                     array('label'=>'Estados','url'=>array('/estado/admin')),
+                                     ),
+                                ),
                           ),
                         ),
                        array('label'=>'Inicio de Sesión', 'url'=>array('/site/example'), 'visible'=>Yii::app()->user->isGuest),

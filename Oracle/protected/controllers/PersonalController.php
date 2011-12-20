@@ -1,4 +1,5 @@
 <?php
+//@Isabel Palomar
 
 class PersonalController extends Controller
 {
@@ -68,26 +69,16 @@ if(isset($_POST['Personal'],$_POST['Estado']))
 {
 $a->attributes=$_POST['Personal'];
 $b->attributes=$_POST['Estado'];
-       //$sql='select max(ID_ESTADO) from ESTADO;';
-
-//$command=$connection->createCommand($sql);
-//$row=$command->queryRow();
-//$row["max"]++;
-//$b->ID_ESTADO=$row["max"];
 
 $SQL="SELECT MAX(ID_ESTADO) from ESTADO";
 $connection=Yii::app()->db;
 $command=$connection->createCommand($SQL);
-//$rowCount=$command->execute(); // execute the non-query SQL
-//$dataReader=$command->query(); // execute a query SQL
 
 $row=$command->queryRow();
 $row["MAX(ID_ESTADO)"]++;
-//print $row;
+
 //$b->ID_ESTADO=$row["MAX(ID_ESTADO)"];
 $a->ID_ESTADO=$row["MAX(ID_ESTADO)"];
-
-
 
 if($b->save() && $a->save())
 $this->redirect(array('view','id'=>$a->ID_PERSONAL));

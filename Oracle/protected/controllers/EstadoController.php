@@ -31,7 +31,7 @@ class EstadoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','ListarEstados','AutocompleteTest'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -173,4 +173,21 @@ class EstadoController extends Controller
 			Yii::app()->end();
 		}
 	}
+     public function actionListarEstados($term) {
+        $criteria = new CDbCriteria;
+        $criteria->condition = "LOWER(NOMBRE_ESTADO) like LOWER(:term)";
+        $criteria->params = array(':term'=> '%'.$_GET['term'].'%');
+        $criteria->limit = 30;
+        $data = Estado::model()->findAll($criteria);
+        $arr = array();
+        foreach ($data as $item) {
+        $arr[] = array(
+        'id' => $item->ID_ESTADO,
+        'value' => $item->NOMBRE_ESTADO,
+        'label' => $item->NOMBRE_ESTADO,
+        );
+        }
+        echo CJSON::encode($arr);
 }
+}//fin de la clase EstadoController
+

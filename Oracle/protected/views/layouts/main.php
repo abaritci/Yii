@@ -24,7 +24,8 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo" align="center"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+                <div align="center" ><?php setlocale(LC_ALL,"es_ES@euro","es_ES","esp"); echo strftime("%A %d de %B del %Y"); ?></div>
 	</div><!-- header -->
 
 	<div id="mainMbMenu">
@@ -37,7 +38,7 @@
                         array('label'=>'Contacto', 'url'=>array('/site/contact')),
                         array('label'=>'Test DropDown Menu',
                           'items'=>array(
-                            array('label'=>'Ejemplo','url'=>array('site/test')),
+                            array('label'=>'Ejemplos','url'=>array('site/test')),
                             array('label'=>'Multiples Modelos ',
                                  'items'=>array(
                                       array('label'=>'Personal','url'=>array('personal/admin')),

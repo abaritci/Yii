@@ -11,12 +11,22 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'NOMBRE_ESTADO'); ?>
-		<?php echo $form->textField($model,'NOMBRE_ESTADO',array('size'=>60,'maxlength'=>128)); ?>
+		<?php
+                 $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+                 'name'=>'NOMBRE_ESTADO',
+                 'attribute'=>'NOMBRE_ESTADO',
+                 'id'=>'NOMBRE_ESTADO',
+                 'model'=>$model,
+                 'source'=>$this->createUrl('ListarEstados'),
+                'options'=>array(
+                'showAnim'=>'fold',
+                ),
+                ));
+               ?>
 		<?php echo $form->error($model,'NOMBRE_ESTADO'); ?>
 	</div>
-
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application using Oracle',
+	'name'=>'Aplicación ejemplo, Yii Framework, Oracle XE',
         'language'=>'es',
          'sourceLanguage'=>'en',
         //  'defaultController'=>'controlador/admin',

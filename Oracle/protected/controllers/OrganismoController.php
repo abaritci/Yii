@@ -1,6 +1,6 @@
 <?php
 
-class EstadoController extends Controller
+class OrganismoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -31,7 +31,7 @@ class EstadoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','ListarEstados'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -61,16 +61,16 @@ class EstadoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Estado;
+		$model=new Organismo;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Estado']))
+		if(isset($_POST['Organismo']))
 		{
-			$model->attributes=$_POST['Estado'];
+			$model->attributes=$_POST['Organismo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->ID_ESTADO));
+				$this->redirect(array('view','id'=>$model->ID));
 		}
 
 		$this->render('create',array(
@@ -90,11 +90,11 @@ class EstadoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Estado']))
+		if(isset($_POST['Organismo']))
 		{
-			$model->attributes=$_POST['Estado'];
+			$model->attributes=$_POST['Organismo'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->ID_ESTADO));
+				$this->redirect(array('view','id'=>$model->ID));
 		}
 
 		$this->render('update',array(
@@ -127,7 +127,7 @@ class EstadoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Estado');
+		$dataProvider=new CActiveDataProvider('Organismo');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class EstadoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Estado('search');
+		$model=new Organismo('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Estado']))
-			$model->attributes=$_GET['Estado'];
+		if(isset($_GET['Organismo']))
+			$model->attributes=$_GET['Organismo'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class EstadoController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=Estado::model()->findByPk($id);
+		$model=Organismo::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,27 +167,10 @@ class EstadoController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='estado-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='organismo-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-     public function actionListarEstados($term) {
-        $criteria = new CDbCriteria;
-        $criteria->condition = "LOWER(NOMBRE_ESTADO) like LOWER(:term)";
-        $criteria->params = array(':term'=> '%'.$_GET['term'].'%');
-        $criteria->limit = 30;
-        $data = Estado::model()->findAll($criteria);
-        $arr = array();
-        foreach ($data as $item) {
-        $arr[] = array(
-        'id' => $item->ID_ESTADO,
-        'value' => $item->NOMBRE_ESTADO,
-        'label' => $item->NOMBRE_ESTADO,
-        );
-        }
-        echo CJSON::encode($arr);
 }
-}//fin de la clase EstadoController
-

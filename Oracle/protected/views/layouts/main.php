@@ -34,6 +34,7 @@
                     'items'=>array(
                         array('label'=>'Inicio', 'url'=>array('/site/index')),
                         array('label'=>'Usuarios', 'url'=>array('/user/'), 'visible'=>!Yii::app()->user->isGuest),
+                        array('label'=>'Organismos','url'=>array('organismo/admin/'),'visible'=>!Yii::app()->user->isGuest),
                         array('label'=>'Acerca de', 'url'=>array('/site/page', 'view'=>'about')),
                         array('label'=>'Contacto', 'url'=>array('/site/contact')),
                         array('label'=>'Test DropDown Menu',
